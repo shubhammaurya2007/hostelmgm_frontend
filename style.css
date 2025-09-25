@@ -1,0 +1,105 @@
+
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b63d0;
+  --secondary:#1f7a4c;
+  --danger:#dc3545;
+  --radius:12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --glass: rgba(255,255,255,0.6);
+  --maxwidth:1100px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#f3f6fb 0%, #ffffff 100%);color:#0f172a;line-height:1.45}
+a{color:var(--accent);text-decoration:none}
+
+header{
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 1.25rem;
+  max-width:var(--maxwidth);
+  margin:1rem auto 0;
+  gap:1rem;
+}
+.logo{font-weight:700;font-size:1.15rem;color:var(--accent)}
+
+/* Nav */
+nav ul{display:flex;gap:.6rem;list-style:none;padding:0;margin:0;align-items:center}
+nav a{padding:.45rem .65rem;border-radius:8px;font-weight:600;color:#0b1724;background:transparent;border:1px solid transparent}
+nav a:hover{background:var(--card);box-shadow:var(--shadow)}
+
+/* Container */
+.container{max-width:var(--maxwidth);margin:1.2rem auto;padding:0 1rem}
+
+/* Layout */
+section{display:grid;gap:1.25rem}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem;border:1px solid rgba(15,23,42,0.03)}
+
+/* Forms */
+.form-row{display:flex;flex-wrap:wrap;gap:1rem}
+.form-group{flex:1 1 180px;display:flex;flex-direction:column;gap:.35rem}
+label{font-size:.85rem;color:var(--muted);font-weight:600}
+input,select,textarea{padding:.55rem .7rem;border-radius:8px;border:1px solid #e6e9ef;background:transparent;font-size:.95rem;outline:none}
+input:focus,select:focus,textarea:focus{box-shadow:0 6px 18px rgba(11,99,208,0.08);border-color:var(--accent)}
+
+/* Buttons */
+.btn{display:inline-block;padding:.5rem .9rem;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:none;cursor:pointer}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,99,208,0.12)}
+.btn.danger{background:var(--danger)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+thead th{background:transparent;text-align:left;padding:.65rem;border-bottom:1px solid #eef2f7;color:var(--muted);font-weight:700}
+tbody td{padding:.6rem;border-bottom:1px dashed rgba(15,23,42,0.03);vertical-align:middle}
+
+/* Small helper */
+.kv{display:flex;flex-direction:column;gap:.25rem}
+.kv .num{font-size:1.25rem;font-weight:800}
+.kv .lbl{font-size:.8rem;color:var(--muted)}
+
+/* Grid cards for dashboard */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}header nav ul{display:none}}
+
+/* Notice list */
+#notice-list .card{margin-bottom:.6rem;padding:.8rem;border-left:4px solid rgba(31,122,76,0.12)}
+
+/* Utility */
+.text-muted{color:var(--muted);font-size:.9rem}
+.h1{font-size:1.4rem;margin:0 0 .6rem}
+
+/* Footer and small screens */
+footer{max-width:var(--maxwidth);margin:1.25rem auto;padding:1rem;color:var(--muted);font-size:.9rem;text-align:center}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .form-row{flex-direction:column}
+  header{padding:.75rem 1rem}
+  .logo{font-size:1rem}
+}
+
+/* Minor polishing for inputs inside tables */
+.table-input{padding:.35rem .45rem;border-radius:6px;border:1px solid #eceff4;font-size:.9rem}
+
+/* Action button small */
+.action-small{padding:.25rem .5rem;border-radius:8px;font-weight:700;border:none;cursor:pointer}
+
+/* subtle hover */
+tbody tr:hover{background:linear-gradient(90deg, rgba(11,99,208,0.02), transparent)}
+
+/* Add large empty state */
+.empty-state{padding:1.4rem;border:1px dashed rgba(15,23,42,0.04);border-radius:10px;background:linear-gradient(180deg, rgba(250,252,255,0.6), transparent);text-align:center;color:var(--muted)}
+
+/* print friendly */
+@media print{
+  nav,header,footer,.btn{display:none}
+  body{background:white}
+  .card{box-shadow:none;border:1px solid #eee}
+}
